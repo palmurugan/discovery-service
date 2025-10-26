@@ -1,0 +1,96 @@
+{
+  "type": "record",
+  "name": "ServiceEvent",
+  "namespace": "com.serviq.discovery.service.events",
+  "fields": [
+    {
+      "name": "eventId",
+      "type": "string"
+    },
+    {
+      "name": "eventType",
+      "type": "string"
+    },
+    {
+      "name": "occurredOn",
+      "type": "string"
+    },
+    {
+      "name": "orgId",
+      "type": "string"
+    },
+    {
+      "name": "serviceId",
+      "type": "string"
+    },
+    {
+      "name": "title",
+      "type": "string"
+    },
+    {
+      "name": "categoryId",
+      "type": "string"
+    },
+    {
+      "name": "category",
+      "type": "string"
+    },
+    {
+      "name": "providerId",
+      "type": "string"
+    },
+    {
+      "name": "providerName",
+      "type": "string"
+    },
+    {
+      "name": "primaryLocation",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "locations",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "default": []
+    },
+    {
+      "name": "duration",
+      "type": "int"
+    },
+    {
+      "name": "unit",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "string"
+    },
+    {
+      "name": "currency",
+      "type": "string"
+    },
+    {
+      "name": "latitude",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "longitude",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "isActive",
+      "type": "boolean"
+    }
+  ]
+}
