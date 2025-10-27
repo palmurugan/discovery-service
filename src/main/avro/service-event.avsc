@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "ServiceEvent",
-  "namespace": "com.serviq.discovery.service.events",
+  "namespace": "com.serviq.provider.service.events",
   "fields": [
     {
       "name": "eventId",

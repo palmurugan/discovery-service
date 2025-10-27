@@ -1,0 +1,108 @@
+curl --location --request PUT 'http://localhost:9200/provider-service-list-v1' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Basic YWRtaW46ejF7b3U1VzFhRiVt' \
+--data '{
+    "settings": {
+      "number_of_shards": 2,
+      "number_of_replicas": 1,
+      "refresh_interval": "1s",
+      "analysis": {
+        "analyzer": {
+          "standard_analyzer": {
+            "type": "standard"
+          },
+          "keyword_lowercase": {
+            "type": "custom",
+            "tokenizer": "keyword",
+            "filter": ["lowercase"]
+          }
+        }
+      }
+    },
+    "mappings": {
+      "properties": {
+        "orgId": {
+          "type": "keyword"
+        },
+        "serviceId": {
+          "type": "keyword"
+        },
+        "title": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          },
+          "analyzer": "standard_analyzer"
+        },
+        "categoryId": {
+          "type": "keyword"
+        },
+        "category": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "providerId": {
+          "type": "keyword"
+        },
+        "providerName": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          },
+          "analyzer": "standard_analyzer"
+        },
+        "primaryLocation": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "locations": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "duration": {
+          "type": "integer"
+        },
+        "unit": {
+          "type": "keyword"
+        },
+        "price": {
+          "type": "scaled_float",
+          "scaling_factor": 100
+        },
+        "currency": {
+          "type": "keyword"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "date",
+          "format": "strict_date_optional_time||epoch_millis"
+        },
+        "updatedAt": {
+          "type": "date",
+          "format": "strict_date_optional_time||epoch_millis"
+        }
+      }
+    }
+  }'
