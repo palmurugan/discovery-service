@@ -30,11 +30,11 @@ event:
   publisher:
     enabled: true
 opensearch:
-  scheme: ${OPENSEARCH_SCHEME:http}
-  host: ${OPENSEARCH_HOST:localhost}
-  port: ${OPENSEARCH_PORT:9200}
-  username: ${OPENSEARCH_USERNAME:admin}
-  password: ${OPENSEARCH_PASSWORD:z1{ou5W1aF%m}
+  scheme: http
+  host: localhost
+  port: 9200
+  username: admin
+  password: z1{ou5W1aF%m
   indexes:
     service-index: ${OPENSEARCH_INDEX_NAME:provider-service-list-v1}
 

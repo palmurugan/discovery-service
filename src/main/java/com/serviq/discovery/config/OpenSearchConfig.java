@@ -1,6 +1,7 @@
 package com.serviq.discovery.config;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.client5.http.auth.AuthScope;
 import org.apache.hc.client5.http.auth.UsernamePasswordCredentials;
 import org.apache.hc.client5.http.impl.auth.BasicCredentialsProvider;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@Slf4j
 @Configuration
 public class OpenSearchConfig {
 
@@ -33,6 +35,7 @@ public class OpenSearchConfig {
 
     @Bean
     public OpenSearchClient openSearchClient() {
+        log.info("OpenSearch Client with password: {}", password);
         final HttpHost httpHost = new HttpHost(scheme, host, port);
 
         final BasicCredentialsProvider credentialsProvider = new BasicCredentialsProvider();
